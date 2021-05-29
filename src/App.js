@@ -1,14 +1,22 @@
-// import logo from './logo.png';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Home from './Home/Home';
+import NewLesson from './components/NewLesson/NewLesson';
 import './App.css';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h1>Swindemy</h1>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/addlesson" component={NewLesson} />
+      </Switch>
+    </Router>
   );
 }
 
