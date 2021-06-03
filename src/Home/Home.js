@@ -1,13 +1,24 @@
 import React from 'react';
 import {
   Button,
+  Input,
+  InputLabel,
+  FormControl,
+  withStyles,
 } from '@material-ui/core';
 import {
   useHistory,
 } from 'react-router-dom';
 import './Home.css';
 
-const Home = () => {
+const styles = {
+  element: {
+    marginBottom: 20,
+    marginLeft: 100,
+  }
+};
+
+const Home = ({classes}) => {
   const history = useHistory();
 
   const addLessonPage = () => {
@@ -17,7 +28,6 @@ const Home = () => {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1>Swindemy</h1>
           <Button
             variant="contained"
@@ -26,9 +36,17 @@ const Home = () => {
           >
             Add a new lesson here
           </Button>
+          <hr />
+          <div className="searchbar">
+            <FormControl className={classes.element}>
+              <InputLabel htmlFor="searchbar">Search Bar</InputLabel>
+              <Input id="searchbar" />
+            </FormControl>
+          </div>
+          <hr />
         </header>
       </div>
     )
 }
 
-export default Home;
+export default withStyles(styles)(Home);
